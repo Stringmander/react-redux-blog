@@ -8,7 +8,7 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
         // userIds.forEach(id => dispatch(fetchUser(id)));
         // VV REFACTOR USING CHAIN **
 
-        _.chain(getState.posts)
+        _.chain(getState().posts)
                 .map('userId')
                 .uniq()
                 .forEach(id => dispatch(fetchUser(id)))
